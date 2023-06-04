@@ -74,23 +74,6 @@ def cal_eigvals(point_set, result_dist, result_index,i,k_threshold):
 		lapla_ev.sort()
 	return lapla_ev
 
-def kde_probability(max_eigval):
-    possibilities = []
-
-    # kde = KernelDensity(kernel='gaussian')
-    # bandwidth = np.arange(0.01, 2, .01)
-    # grid = GridSearchCV(kde, {'bandwidth': bandwidth})
-    # grid.fit(x_train[:, np.newaxis])
-    # kde = grid.best_estimator_
-    
-    # ['cosine', 'epanechnikov', 'exponential', 'gaussian', 'linear', 'tophat']
-    kde = KernelDensity(kernel='gaussian', bandwidth=0.1)
-    kde.fit(max_eigval[:, np.newaxis])
-
-    possibilities = kde.score_samples(max_eigval[:, np.newaxis])
-    # print("possibilities: ", possibilities)
-    return possibilities
-
 def get_kdim_kde(x,data_array,bandwidth=2):
     def gauss(x, d):
         return (1/pow( math.sqrt(2*math.pi ), d))*math.exp(-0.5*(linalg.norm(x)))

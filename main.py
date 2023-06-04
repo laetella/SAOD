@@ -90,10 +90,6 @@ def main_plt_matrix(point_set):
         plt_sim_matrix(result_index[to_plt_point], laplacian_matrix)
 
 def plt_2ev_figure(ev_list, name):
-    '''
-    description: 根据给定的特征值数组，画直方图和特征值的线
-    return {*}
-    '''    
     ps_size = len(ev_list)
     ev_arr = np.array(ev_list)
     plt.figure(0)
@@ -429,9 +425,6 @@ def plt_values():
     return 0
 
 def main():
-    pdf2img()
-    # change_img()
-    # # # 画论文中的图
     # plt_71()
     # eigenvalue_3d()
     # plt_point_index()
