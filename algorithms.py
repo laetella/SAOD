@@ -85,7 +85,7 @@ def get_kdim_kde(x,data_array,bandwidth=2):
     for i in range(len(data_array)):
         gauss_value = gauss((linalg.norm(x-data_array[i]))/bandwidth, d)
         res += gauss_value
-    res /= (N*bandwidth)
+    res /= (N*pow(bandwidth, d) )
     return res
 
 def saod(values, d_dim, result_index, result_dist):
