@@ -4,7 +4,7 @@ from scipy.sparse.linalg import eigs
 import time
 
 class ADRN:
-    def __init__(self, alpha=0.1, m=None, max_iter=100, tol=1e-6, 
+    def __init__(self, alpha=0.26, m=None, max_iter=100, tol=1e-6, 
                  w_max_iter=50, s_max_iter=50, step_size_w=0.01, step_size_s=0.01):
         """
         ADRN: Anomaly Detection with Representative Neighbors

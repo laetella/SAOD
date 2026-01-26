@@ -88,7 +88,7 @@ def get_kdim_kde(x,data_array,bandwidth=2):
     res /= (N*pow(bandwidth, d) )
     return res
 
-def saod(values, d_dim, result_index, result_dist):
+def get_outlierness(values, d_dim, result_index):
     global_of = [] 
     of = []
     nn_number = len(result_index)
@@ -104,7 +104,7 @@ def saod(values, d_dim, result_index, result_dist):
         of.append(outlier_f)  
     return of 
 
-def our_method(point_set, k_threshold, d_dim=3):
+def SAOD(point_set, k_threshold, d_dim=3):
     method='saod'  
     start = time.time()
     kdt = KDTree(point_set)
@@ -119,6 +119,6 @@ def our_method(point_set, k_threshold, d_dim=3):
         lapla_ev_arr.append(lapla_ev)
     lapla_ev_arr = np.array(lapla_ev_arr)
     start = time.time()
-    outlier_factor = saod(lapla_ev_arr, d_dim, result_index, result_dist)
+    outlier_factor = get_outlierness(lapla_ev_arr, d_dim, result_index)
     return outlier_factor 
 

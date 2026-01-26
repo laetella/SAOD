@@ -40,7 +40,7 @@ from mpl_toolkits.mplot3d import Axes3D
 from sklearn.metrics import *
 import cv2
 import pprint
-from algorithms import * # cal_eigvals
+from SAOD import * # cal_eigvals
 # from od_compare import *
 from scipy.spatial import KDTree
 import math
@@ -88,20 +88,6 @@ def load_mat(fileName):
     point_set = m["X"]; labels = m["y"].tolist()
     outlier_num = labels.count([1])
     return point_set, labels, outlier_num
-
-def load_arff1(fileName):
-    with open(fileName) as fh:
-        dataset = np.array(arff.load(fh)['data'])
-        point_set = dataset[:,1:-1].astype(np.float)
-        labels = dataset[:,0]
-        outlier_num = 0
-        for i, l in enumerate(labels):
-            if l == 'no' :
-                labels[i] = 0
-            else:
-                labels[i] = 1
-                outlier_num += 1
-    return point_set, labels.astype(np.int), outlier_num
 
 def plt_outliers(outliers, point_set,fileName, clf):
     plt.figure(0)
